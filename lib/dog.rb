@@ -69,10 +69,10 @@ attr_accessor :name, :breed, :id
     sql =<<-SQL
     SELECT *
     FROM dogs
-    WHERE name = ? 
+    WHERE name = ?
     SQL
     DB[:conn].exeucte(sql,name)
     new_dog = Dog.new(id:result[0], name:result[1], breed:result[2])
     new_dog.save
-  end 
+  end
 end
