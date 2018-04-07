@@ -41,6 +41,12 @@ attr_accessor :name, :breed, :id
     self
   end
 
+  def self.update
+    sql =<<-SQL
+    UPDATE dogs SET name = ?, breed = ? WHERE id = ?
+    SQL
+    DB[:conn].execute(sql, self.name, self.breed, self.id)
+  end
 
 
   def self.create(name:, breed:)
