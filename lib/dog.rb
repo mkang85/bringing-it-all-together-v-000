@@ -43,6 +43,7 @@ attr_accessor :name, :breed, :id
       DB[:conn].execute(sql, self.name, self.breed)
       @id = DB[:conn].execute("SELECT last_insert_rowid()")[0][0]
     end
+    self
   end
 
   def self.find_by_name(name)
