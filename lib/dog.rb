@@ -37,6 +37,6 @@ attr_accessor :name, :breed, :id
     FROM dogs
     WHERE id = ?
     SQL
-    DB[:conn].execute(sql, id:)
+    DB[:conn].execute(sql, id)
   end
 end
