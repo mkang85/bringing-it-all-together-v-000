@@ -61,6 +61,7 @@ attr_accessor :name, :breed, :id
     WHERE id = ?
     SQL
     result = DB[:conn].execute(sql, id)
+    binding.pry
     new_dog = Dog.new(id:result[0], name:result[1], breed:result[2])
     new_dog.save
   end
@@ -73,6 +74,5 @@ attr_accessor :name, :breed, :id
     SQL
     result = DB[:conn].execute(sql,name)[0]
     new_dog = Dog.new(id:result[0], name:result[1], breed:result[2])
-
   end
 end
