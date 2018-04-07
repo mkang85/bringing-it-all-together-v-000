@@ -10,7 +10,7 @@ attr_accessor :name, :breed, :id
   def self.create_table
     sql =<<-SQL
     CREATE TABLE IF NOT EXISTS dogs(
-      id INTEGER PRIMARY KEY
+      id INTEGER PRIMARY KEY,
       name TEXT,
       breed TEXT
     )
@@ -22,5 +22,5 @@ attr_accessor :name, :breed, :id
     DB[:conn].execute("DROP TABLE dogs")
   end
 
-  
+
 end
