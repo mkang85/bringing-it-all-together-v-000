@@ -66,7 +66,7 @@ attr_accessor :name, :breed, :id
     if !dog_data.nil?
       dog = self.new_from_db(dog_data)
     else
-      dog = self.create(dog_data)
+      dog = self.create(name:name, breed:breed)
     end
     dog
   end
