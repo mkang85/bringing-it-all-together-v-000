@@ -1,4 +1,4 @@
-class DOG
+class Dog
 attr_accessor :name, :breed, :id
 
   def initialize(id:nil, name:, breed:)
@@ -18,5 +18,5 @@ attr_accessor :name, :breed, :id
     DB[:conn].execute("DROP TABLE dogs")
   end
 
-  
+
 end
