@@ -22,5 +22,10 @@ attr_accessor :name, :breed, :id
     DB[:conn].execute("DROP TABLE dogs")
   end
 
+  def self.new_from_db(row)
+    new_dog = Dog.new(row[0], row[1], row[2])
+    new_dog
+  end 
+
 
 end
