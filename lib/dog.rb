@@ -27,6 +27,19 @@ attr_accessor :name, :breed, :id
     new_dog
   end
 
+  def save
+    if self.id
+      self.update
+    else
+      sql =<<-SQL
+      
+      SQL
+      DB[:conn].execute(sql)
+    end
+  end
+
+
+
   def self.create(name:, breed:)
     new_dog = Dog.new(name:name, breed:breed)
   end
@@ -38,7 +51,6 @@ attr_accessor :name, :breed, :id
     WHERE id = ?
     SQL
     result = DB[:conn].execute(sql, id)
-    binding.pry
     new_dog = Dog.new(id:result[0], name:result[1], breed:result[2])
     new_dog
   end
