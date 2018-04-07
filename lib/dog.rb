@@ -59,4 +59,16 @@ attr_accessor :name, :breed, :id
     new_dog
   end
 
+  def self.find_by_id(id)
+    sql =<<-SQL
+    SELECT *
+    FROM dogs
+    WHERE id = ?
+    SQL
+    #binding.pry
+    result = DB[:conn].execute(sql, id)[0]
+    new_dog = Dog.new(id:result[0], name:result[1], breed:result[2])
+    new_dog
+  end
+
 end
