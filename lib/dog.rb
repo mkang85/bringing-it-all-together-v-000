@@ -55,7 +55,7 @@ attr_accessor :name, :breed, :id
     SQL
     #binding.pry
     result = DB[:conn].execute(sql, name)[0]
-    new_dog = Dog.new(result[0], result[1], result[2])
+    new_dog = Dog.new(id:result[0], name:result[1], breed:esult[2])
     new_dog
   end
 
