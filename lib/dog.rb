@@ -52,7 +52,6 @@ attr_accessor :name, :breed, :id
   def self.find_or_create_by(name:, breed:)
   dog_data = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)[0]
     if !dog_data.nil?
-      # stuff = dog_data[0]
       dog = self.new(id:dog_data[0], name:dog_data[1], breed:dog_data[2])
     else
       dog = self.create(name:name, breed:breed)
