@@ -71,9 +71,8 @@ attr_accessor :name, :breed, :id
     SELECT *
     FROM dogs
     WHERE name = ?
-    LIMIT 1
     SQL
-    result = DB[:conn].execute(sql,name)
+    result = DB[:conn].execute(sql,name)[0]
     new_dog = Dog.new(id:result[0], name:result[1], breed:result[2])
   end
 
