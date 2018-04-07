@@ -71,13 +71,13 @@ attr_accessor :name, :breed, :id
     new_dog
   end
 
-  def update 
+  def update
     sql =<<-SQL
-    SELECT * 
+    SELECT *
     FROM dogs
     WHERE name = ? AND album = ?
     SQL
     DB[:conn].execute(sql)
-  end 
+  end
 
 end
