@@ -32,7 +32,7 @@ attr_accessor :name, :breed, :id
       self.update
     else
       sql =<<-SQL
-      INSERT INTO dogs (name, albun)
+      INSERT INTO dogs (name, breed)
       VALUES (?, ?)
       SQL
       DB[:conn].execute(sql, self.name, self.breed)
