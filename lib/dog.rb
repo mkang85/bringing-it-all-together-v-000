@@ -28,7 +28,6 @@ attr_accessor :name, :breed, :id
     FROM dogs
     WHERE name = ?
     SQL
-    binding.pry
     dog_data = DB[:conn].execute(sql, name)[0]
     self.new_from_db(dog_data)
   end
