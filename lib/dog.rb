@@ -1,23 +1,26 @@
-class Dog 
-attr_accessor :name, :breed, :id 
+class Dog
+attr_accessor :name, :breed, :id
 
   def initialize(id:, name:, breed:)
-    @id = id 
-    @name = name 
-    @breed = breed 
-  end 
+    @id = id
+    @name = name
+    @breed = breed
+  end
 
-  def self.create_table 
+  def self.create_table
     sql =<<-SQL
     CREATE TABLE IF NOT EXISTS dogs(
-      id INTEGER PRIMARY KEY 
-      name TEXT, 
+      id INTEGER PRIMARY KEY
+      name TEXT,
       breed TEXT
     )
     SQL
-    DB[:conn].execute("CREATE TABLE IF NOT EXISTS dogs")
-  end 
+    DB[:conn].execute(sql)
+  end
 
   def self.drop_table
-  end 
-end 
+    DB[:conn].execute("DROP TABLE dogs")
+  end
+
+  
+end
