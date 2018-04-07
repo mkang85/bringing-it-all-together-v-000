@@ -45,8 +45,8 @@ attr_accessor :name, :breed, :id
     sql =<<-SQL
     UPDATE dogs SET name = ?, breed = ? WHERE id = ?
     SQL
-    binding.pry
     DB[:conn].execute(sql, self.name, self.breed, self.id)
+    binding.pry
   end
 
 
