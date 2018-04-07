@@ -35,6 +35,6 @@ attr_accessor :name, :breed, :id
     SQL
     DB[:conn].execute(sql, name)
     
-  end 
+  end
 
 end
