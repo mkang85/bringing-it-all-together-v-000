@@ -22,5 +22,9 @@ attr_accessor :name, :breed, :id
     DB[:conn].execute("DROP TABLE dogs")
   end
 
+  def update
+    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
+    DB[:conn].execute(sql, self.name, self.breed, self.id)
+  end
 
 end
