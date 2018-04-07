@@ -49,7 +49,7 @@ attr_accessor :name, :breed, :id
 
   def self.find_by_name(name)
     sql =<<-SQL
-    FIND *
+    SELECT *
     FROM dogs
     WHERE name = ?
     SQL
