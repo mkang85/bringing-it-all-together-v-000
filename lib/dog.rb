@@ -32,6 +32,18 @@ attr_accessor :name, :breed, :id
     new_dog
   end
 
+  def save
+    if self.id 
+      self.update 
+    else 
+      sql =<<-SQL
+      INSERT INTO dogs (name, breed)
+      VALUES (?, ?)
+      SQL
+      DB[:conn].execute(sql, self.name, self.breed)
+    end 
+  end 
+
   def self.find_by_name(name)
     sql =<<-SQL
     FIND *
