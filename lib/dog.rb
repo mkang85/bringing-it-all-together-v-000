@@ -28,6 +28,7 @@ attr_accessor :name, :breed, :id
     FROM dogs
     WHERE name = ?
     SQL
+    binding.pry
     DB[:conn].execute(sql, name)
   end
 
