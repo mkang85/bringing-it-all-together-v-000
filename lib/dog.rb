@@ -27,6 +27,11 @@ attr_accessor :name, :breed, :id
     new_dog
   end
 
+  def self.create(name:, breed:)
+    new_dog = Dog.new(name:name, breed:breed)
+    new_dog
+  end
+
   def self.find_by_name(name)
     sql =<<-SQL
     FIND *
@@ -34,7 +39,7 @@ attr_accessor :name, :breed, :id
     WHERE name = ?
     SQL
     DB[:conn].execute(sql, name)
-    
+
   end
 
 end
