@@ -71,8 +71,13 @@ attr_accessor :name, :breed, :id
     SELECT *
     FROM dogs
     WHERE name = ?
+    LIMIT 1
     SQL
-    result = DB[:conn].execute(sql,name)[0]
+    result = DB[:conn].execute(sql,name)
     new_dog = Dog.new(id:result[0], name:result[1], breed:result[2])
+  end
+
+  def self.find_or_create_by
+
   end
 end
