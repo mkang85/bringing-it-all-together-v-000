@@ -75,7 +75,7 @@ attr_accessor :name, :breed, :id
     sql =<<-SQL
     SELECT *
     FROM dogs
-    WHERE name = ? AND album = ?
+    WHERE name = ? AND breed = ?
     SQL
     DB[:conn].execute(sql)
   end
